@@ -26,6 +26,14 @@ const userSchema = new mongoose.Schem(
       enum: ["Student", "Instructor", "Admin"],
       requied: true,
     },
+    active: {
+      type: Boolean,
+      default: true,
+    },
+    approved: {
+      type: Boolean,
+      default: false,
+    },
     additionalDetailes: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Profile",
@@ -37,6 +45,12 @@ const userSchema = new mongoose.Schem(
         ref: "Course",
       },
     ],
+    token: {
+      type: String,
+    },
+    resetPasswordExpires: {
+      type: Date,
+    },
     image: {
       type: String,
     },
