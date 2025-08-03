@@ -7,7 +7,7 @@ const courseSchema = new mongoose.Schema({
   courseDescription: {
     type: String,
   },
-  intructor: {
+  instructor: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
@@ -37,14 +37,14 @@ const courseSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Category",
   },
-  studentenrolled: [
+  studentsEnroled: [
     {
       type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: "User",
     },
   ],
-  instructors: {
+  instructions: {
     type: [String],
   },
   status: {
