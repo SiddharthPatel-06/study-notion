@@ -125,7 +125,7 @@ exports.getAllUserDetails = async (req, res) => {
 };
 
 // Controller to update displayed picture
-exports.updateDisplayedPicture = async (req, res) => {
+exports.updateDisplayPicture = async (req, res) => {
   try {
     const displayPicture = req.files.displayedPicture;
     const userId = req.user.id;

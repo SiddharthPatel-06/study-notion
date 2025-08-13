@@ -4,6 +4,7 @@ const Category = require("../models/Category");
 const Section = require("../models/Section");
 const SubSection = require("../models/SubSection");
 const { uploadImageToCloudinary } = require("../utils/imageUploader");
+const { generateCourseImage } = require("../services/aiCourseService");
 
 // Create a New Course Controller
 exports.createCourse = async (req, res) => {
@@ -135,7 +136,7 @@ exports.createCourse = async (req, res) => {
 };
 
 // Edit Course Detail Controller
-exports.editCourse = async (res, res) => {
+exports.editCourse = async (req, res) => {
   try {
     // Extract courseId and other updates from the request body
     const { courseId } = req.body;
