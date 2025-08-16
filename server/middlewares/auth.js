@@ -3,7 +3,7 @@ require("dotenv").config();
 const User = require("../models/User");
 
 // Auth Middleware to check if token is valid and decode it
-exports.auth = async (req, res) => {
+exports.auth = async (req, res, next) => {
   try {
     console.log("BEFORE TOKEN EXTRACTION");
 

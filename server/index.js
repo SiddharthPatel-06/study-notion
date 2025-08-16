@@ -51,7 +51,6 @@ app.use("/api/v1/payment", paymentRoutes);
 const genaiRoutes = require("./services/genaiRoutes");
 app.use("/api/v1/genai", genaiRoutes);
 
-
 app.get("/", (req, res) => {
   res.json({ success: true, message: "Welcome to the StudyNotion API!" });
 });
