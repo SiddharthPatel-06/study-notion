@@ -14,7 +14,7 @@ exports.signup = async (req, res) => {
     // Destructure fields from the request body
     const {
       firstName,
-      lastNmae,
+      lastName,
       email,
       password,
       confirmPassword,
@@ -171,44 +171,44 @@ exports.sendotp = async (req, res) => {
   try {
     const { email } = req.body;
 
-    // Find User with Provided Email
+    // Check if user already exists
     const checkUserPresent = await User.findOne({ email });
-
-    // If user found with provided email
     if (checkUserPresent) {
       return res.status(401).json({
         success: false,
-        message: `User is Already Registered`,
+        message: "User is Already Registered",
       });
     }
 
-    var otp = otpGenerator.generate(6, {
+    // Generate 6-digit OTP
+    let otp = otpGenerator.generate(6, {
       upperCaseAlphabets: false,
       lowerCaseAlphabets: false,
       specialChars: false,
     });
 
-    const result = await OTP.findOne({ otp: opt });
-    console.log("Result is Generate OTP Func");
-    console.log("OTP", otp);
-    console.log("Result", result);
-
+    // Ensure unique OTP
+    let result = await OTP.findOne({ otp });
     while (result) {
       otp = otpGenerator.generate(6, {
         upperCaseAlphabets: false,
+        lowerCaseAlphabets: false,
+        specialChars: false,
       });
+      result = await OTP.findOne({ otp });
     }
 
+    // Save OTP in DB
     const otpPayload = { email, otp };
     const otpBody = await OTP.create(otpPayload);
-    console.log("OTP Body", otpBody);
+    console.log("OTP Body:", otpBody);
+
     res.status(200).json({
       success: true,
-      message: `OTP Sent Successfully`,
-      otp,
+      message: "OTP Sent Successfully",
     });
   } catch (error) {
-    console.error(error.message);
+    console.error("Error in sendotp:", error.message);
     return res.status(500).json({
       success: false,
       message: "Failed to send OTP. Please try again.",
