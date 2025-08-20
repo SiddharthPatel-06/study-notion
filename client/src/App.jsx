@@ -1,7 +1,12 @@
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="h-screen flex items-center justify-center bg-richblack-900">
-      <h1 className="text-4xl font-bold text-white">Welcome to StudyNotion</h1>
+    <div className="flex min-h-screen w-screen flex-col bg-richblack-900 font-inter">
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 }
