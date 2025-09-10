@@ -131,10 +131,10 @@ I'm currently learning **Generative AI**, and I'm planning to integrate:
 
 ## Connect with Me
 
-- <a href="https://www.linkedin.com/in/siddharth-patel-b1ba53270/" target="_blank">LinkedIn</a>
+- <a href="https://www.linkedin.com/in/siddharth-dev/" target="_blank">LinkedIn</a>
 - <a href="https://x.com/Siddharth0693" target="_blank">Twitter</a>
 - <a href="mailto:heycodewithsid@gmail.com" target="_blank">heycodewithsid@gmail.com</a>
-- <a href="https://siddharth-genai.vercel.app/" target="_blank">Portfolio</a>
+- <a href="https://siddharth-dev.vercel.app/" target="_blank">Portfolio</a>
 
 ---
 
